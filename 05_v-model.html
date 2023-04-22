@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. v-bind :value的绑定
+        // 2. @input
+        // 实际上v-model是一种语法糖
+
+        // 组件上使用v-model
+        // 实际上是在   :modelValue = "" 和 @update:modelValue = "" 的语法糖
+        // 这样做 可以允许更改父组件给子组件传递的props
+        
+
+        // 多次使用v-model：
+
+        // 如果给子组件用了v-model 后续在子组件的input框使用v-model的话
+        //      需要给input的框的v-model="一个计算属性的值"
+        //      计算属性写成set和get形式 就不会不生效了
+    </script>
+</body>
+</html>

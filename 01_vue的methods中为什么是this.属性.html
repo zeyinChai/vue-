@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        // vue2中
+        methods: {
+            // hello() {
+            //     console.log('-----------');
+            // }
+        }
+        //   观察vue2的optionsAPI这种形式
+        //    会取出所有配置比如methods computed..  会先判断有没有关键字methods 
+        //        遍历methods里面的key  用 bind 方法改变this变成publicThis赋值给ctx[key]
+        //             publicThis实际上就是代理对象 代理data    就是data数据
+        //                  所以this最终相当于绑定的是data中的数据
+
+        //             总结 ：底层就是做了bind改变了this执行
+    </script>
+</body>
+</html>

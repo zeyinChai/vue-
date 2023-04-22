@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+            1.静态提升
+            2.预字符串化
+            3.缓存事件处理函数
+            4.PatchFlag
+        -->
+
+    1.静态提升
+    <div>hello world</div>
+    如这种 标签和里面的内容都不会发送变化 vue3将会对其标记为静态变量 直接拿来用
+
+    所以源码里做的方法是 对于不变的东西 会创建相对应的变量 做一个作用域提升
+        当再次调用render函数的时候 只需要把相对应的变量拿进去就行了而不是重新创建vnode做diff算法
+            提升的效率 避免了转换成vnode的形式做diff算法
+    
+    2.预字符串化 (在静态提升的基础上)
+    <div>
+        <h1>Logo</h1>
+        <ul>
+            <li>你好1</li>
+            <li>你好2</li>
+            <li>你好3</li>
+        </ul>
+        <div>{{ user }}</div>
+    </div>
+    如果上面这种类型 因为h1和ul中的内容都是不变的 所以vue3遇到这种连续的静态模板
+        将其直接打包成字符串 避免vnode进行diff   然后直接渲染出来 主要用于ssr
+
+    3.缓存事件处理函数
+    <button @click="count++">@@@@</button>
+    vue3会发现这次的事件处理函数是count++ 不可能下次就变成其他的事件处理函数了 所以会缓存起来
+
+    4.PatchFlag (在静态提升的基础上)
+    <div class="box" title={{title}}>{{text}}</div>
+    vue3会识别这个东西 只有title和text是动态的 因为是模板字符串 
+        所以进行diff的时候 只比较title和text
+
+  </body>
+</html>

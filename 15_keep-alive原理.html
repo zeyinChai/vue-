@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        前面说了，keep-alive是一个Vue全局组件，他接收三个参数：
+        include：可传字符串、正则表达式、数组，名称匹配成功的组件会被缓存
+        exclude：可传字符串、正则表达式、数组，名称匹配成功的组件不会被缓存
+        max：可传数字，限制缓存组件的最大数量，超过max则按照LRU算法进行置换
+
+        说说keep-alive在各个生命周期里：
+        created：初始化一个cache、keys，前者用来存缓存组件的虚拟dom集合，后者用来存缓存组件的key集合
+        mounted：实时监听include、exclude这两个的变化，并执行相应操作
+        destroyed：删除掉所有缓存相关的东西
+
+        第一步：获取到keep-alive包裹的第一个组件以及它的组件名称
+
+        第二步：判断此组件名称是否能被白名单、黑名单匹配，如果不能被白名单匹配 || 能被黑名单匹配，
+            则直接返回VNode，不往下执行，如果不符合，则往下执行第三步
+
+        第三步：根据组件ID、tag生成缓存key，并在缓存集合中查找是否已缓存过此组件。
+            如果已缓存过，直接取出缓存组件，并更新缓存key在keys中的位置（这是LRU算法的关键），如果没缓存过，则继续第四步
+
+        第四步：分别在cache、keys中保存此组件以及他的缓存key，并检查数量是否超过max，超过则根据LRU算法进行删除
+
+        第五步：将此组件实例的keepAlive属性设置为true，
+        */ 
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 通过 this 直接访问到 data 里面的数据的原因是：
+        //              data里的属性最终会存储到new Vue的实例（vm）上的 _data对象中
+        //              访问 this.xxx，是访问Object.defineProperty代理后的 this._data.xxx。
+
+        // this.msg => 根据 new Vue() 的this改变 变成 vm.msg 
+        //  又因为 vue实例创建的时候 把$options.data 赋值给了vue实例的_data身上 
+        //      然后经过对vm的数据劫持 访问this.msg 经过get劫持 => return this[sourcekey][key] => this._data.msg
+        //      最后就是this.msg => vm.msg => vm._data.msg
+    </script>
+</body>
+</html>

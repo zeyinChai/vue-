@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Vue推荐在绝大多数情况下使用模板来创建你的html,但是一些特殊场景,你真的需要JS完全编程能力
+        //          这时候你可以使用渲染函数,它比模板更接近编译器
+
+        // Vue在生成真实的DOM之前 会将我们的节点转换成VNode 而且VNode组合在一起形成一个树结构就是虚拟DOM
+        //      事实上,编写的template中的HTML最终也是在使用渲染函数生成对应的VNode
+
+        // h函数包含在render函数中 用于创建VNode
+
+        // template中 <div>哈哈哈</div> ==> 通过compile编译转化成render函数
+        //                               render函数执行===>返回的就是VNode节点
+        //                               VNode ==> 转换成真实DOM
+
+        // h()函数是一个用于创建vnode的一个函数
+        // 其实更准确的命名是createVNode()函数，但是为了简便在Vue简化为h函数
+
+        // h函数接收三个参数
+        //  1.一个HTML标签名,一个组件等                  例如 'div'   是必需的
+        //  2.props一些属性                             例如{id='',class=''}       是可选的
+        //  3.[{}]子元素或者子组件                          因为div里面可能有span等标签  
+           
+        // render(h) {
+        //     return h('h2',{class:'title'},"Hello Render")
+        // }
+
+        // 在vue解析的时候 会判断有没有render函数 如果没有的话 会把模板编译成render
+        // 把JSX解析成h函数的格式 是babel做的事情
+    </script>
+</body>
+</html>

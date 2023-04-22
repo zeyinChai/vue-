@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 认识VNode
+        // 实际上,无论是组件还是元素,它们最终在Vue中表示出来都是一个个VNode   Vnode本质是一个JS对象
+
+        // 过程     template模板 => VNode虚拟节点 => 真实DOM (显示到浏览器上面)
+
+        // VNode最大的好处  1.做跨平台的渲染        服务端 移动端等 
+        //                  2.某些情况下性能更高
+
+        // 又VNode虚拟节点 形成的树结构 称为虚拟DOM  虚拟DOM经渲染变成真实DOM
+
+        // 引用虚拟DOM好处
+        // DOM本身来说有很多的属性 比如要克隆一份 进行操作很不方便
+        //      一直对真实DOM进行操作 会造成浏览器的回流 影响性能
+
+        // 虚拟DOM 其实就是一个个JS的对象  ==> 可以document.createElement转成真实DOM
+        //          同样的可以转化到不同的移动端设备 这样的话 可以做跨平台
+
+        // <div>coderWhy</div> -> compiler编译器 -> 编译成render函数 
+        //      -> h()生成 VNode = {tag:'div',children:'哈哈哈'} ->真实DOM->被浏览器解析
+    </script>
+</body>
+</html>
